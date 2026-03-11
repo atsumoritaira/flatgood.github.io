@@ -8,7 +8,7 @@
   hsScript.id = 'hs-script-loader';
   hsScript.async = true;
   hsScript.defer = true;
-  hsScript.src = '//js.hs-scripts.com/YOUR_PORTAL_ID.js'; // ← ポータルIDに置き換える
+  hsScript.src = '//js.hs-scripts.com/51009495.js'; // ← ポータルIDに置き換える
   document.head.appendChild(hsScript);
 
   // ========== ナビゲーション定義 ==========
