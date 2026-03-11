@@ -1,17 +1,7 @@
-// nav.js - 共通ナビゲーション生成 & アクティブタブ制御 & HubSpotトラッキング
+// nav.js - 共通ナビゲーション生成 & アクティブタブ制御
 
 (function () {
 
-  // ========== HubSpot トラッキングコード（全ページ共通） ==========
-  var hsScript = document.createElement('script');
-  hsScript.type = 'text/javascript';
-  hsScript.id = 'hs-script-loader';
-  hsScript.async = true;
-  hsScript.defer = true;
-  hsScript.src = '//js.hs-scripts.com/51009495.js'; // ← ポータルIDに置き換える
-  document.head.appendChild(hsScript);
-
-  // ========== ナビゲーション定義 ==========
   const NAV_ITEMS = [
     { label: 'ホーム',             icon: '🏠', href: 'index.html',    root: true },
     { label: 'サービス',           icon: '⚙️', href: 'services.html' },
@@ -26,7 +16,6 @@
     { label: 'お問い合わせ',        icon: '✉️', href: 'contact.html' },
   ];
 
-  // ========== ナビゲーション生成 ==========
   function buildHeader() {
     // index.html（ルート）か pages/ 配下かを判定
     const isRoot = !location.pathname.includes('/pages/');
@@ -37,7 +26,6 @@
     const currentFile = location.pathname.split('/').pop() || 'index.html';
 
     const navLinks = NAV_ITEMS.map(item => {
-      // ホームリンクのhrefをルート/pages配下で切り替え
       const href = item.root ? logoHref : basePath + item.href;
       const isActive = currentFile === item.href;
       return `<a href="${href}" class="${isActive ? 'active' : ''}"><span class="nav-icon">${item.icon}</span>${item.label}</a>`;
